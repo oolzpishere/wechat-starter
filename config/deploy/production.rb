@@ -60,7 +60,7 @@
 #     # password: "please use keys"
 #   }
 
-server "wechat-starter.sflx.com.cn",
+server "119.29.214.141",
        user: "ubuntu",
        roles: %w{web app},
        ssh_options: {
