@@ -41,6 +41,7 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'capistrano'
+  gem 'capistrano-figaro-yml'
 end
 
 group :development do
