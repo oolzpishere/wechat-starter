@@ -1,5 +1,5 @@
 module InvoicesHelper
-  def to_json(json)
+  def to_hash(json)
     JSON.parse(json)
   end
 end

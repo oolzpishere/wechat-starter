@@ -13,7 +13,7 @@
 
 		    <tbody>
 			<%#  reject_rows(Entry.new(result: @result).values).each do |k, v| %>
-			<%  to_json(@invoice.hash_store).each do |k, v| %>
+			<%  to_hash(@invoice.hash_store).each do |k, v| %>
 			    <%# unless v.to_s.chomp.empty? %>
 			    <tr>
 				<td><b><%= "#{k}:"%></b>

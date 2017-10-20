@@ -13,8 +13,8 @@
     <% @invoices.each do |invoice| %>
     <%# invoice_hash = JSON.parse(invoice.hash_store) %>
       <tr>
-        <td><%= link_to to_json(invoice.hash_store)[:title], invoice %></td>
-        <td><%= link_to to_json(invoice.hash_store)[:tax_no], invoice %></td>
+        <td><%= link_to to_hash(invoice.hash_store)[:title], invoice %></td>
+        <td><%= link_to to_hash(invoice.hash_store)[:tax_no], invoice %></td>
         <td><%= link_to 'Show', invoice %></td>
         <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
         <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
