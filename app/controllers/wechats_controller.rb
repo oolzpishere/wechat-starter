@@ -1,6 +1,15 @@
 class WechatsController < ApplicationController
+
   # to allow using wechat message DSL and web page helper
   wechat_responder
+  skip_before_action :verify_signature
+
+  on :event, with: 'submit_invoice_title' do |request|
+    invoice = Invoice.new()
+    invoice[:openid] = request.message_hash[:FromUserName]
+    invoice[:hash_store] = request.message_hash.to_json
+    invoice.save
+  end
 
   # default text responder when no other match
   on :text do |request, content|
@@ -115,12 +124,16 @@ class WechatsController < ApplicationController
     request.reply.text "replace_party job #{batch_job[:JobId]} finished, return code #{batch_job[:ErrCode]}, return message #{batch_job[:ErrMsg]}"
   end
 
+
+
   on :event do |request|
     logger.info request.inspect
     if request[:CardId].present?
       request.reply.text "CardId: #{request[:CardId]}, Event: #{request[:Event]}"
     end
   end
+
+
 
   # Any not match above will fail to below
   on :fallback, respond: 'fallback message'
