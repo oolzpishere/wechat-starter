@@ -2,7 +2,7 @@ class WechatsController < ApplicationController
 
   # to allow using wechat message DSL and web page helper
   wechat_responder
-  skip_before_action :verify_signature
+  skip_before_action :verify_signature unless Rails.env.match(/production/)
 
   on :event, with: 'submit_invoice_title' do |request|
     invoice = Invoice.new()
