@@ -13,14 +13,23 @@
 
           <tbody>
             <%#  reject_rows(Entry.new(result: @result).values).each do |k, v| %>
-            <%  to_hash(@invoice.hash_store).each do |k, v| %>
+            <%  to_hash(@invoice.hash_store)
+            .reject {|k,_| %i(create_time).include?(k)}
+            .each do |k, v| %>
             <%# unless v.to_s.chomp.empty? %>
             <tr>
-              <td><b><%= invoice_hash[k] ? invoice_hash[k] : k %>:</b>
+              <td>
+                <b><%= invoice_hash[k] ? invoice_hash[k] : k %>:</b>
                 <%= v unless v.empty? %>
               </td>
             </tr>
             <% end %>
+            <tr>
+              <td>
+                <b><%= invoice_hash[:updated_at]%>:</b>
+                <%= @invoice[:updated_at]%>
+              </td>
+            </tr>
           </tbody>
         </table>
 

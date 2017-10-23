@@ -18,7 +18,7 @@
           <tbody>
             <% hash_store = to_hash(invoice.hash_store) %>
             <% hash_store
-            .select{|k| %i(title tax_no create_time).include?(k)}
+            .select{|k| %i(title tax_no).include?(k)}
             .each do |k, _| %>
             <tr>
               <td>
@@ -27,6 +27,13 @@
               </td>
             </tr>
             <% end %>
+            <tr>
+              <td>
+                <b><%= invoice_hash[:updated_at]%>:</b>
+                <%= invoice[:updated_at]%>
+              </td>
+            </tr>
+
           </tbody>
         </table>
 
