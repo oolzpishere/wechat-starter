@@ -16,7 +16,7 @@
             <%  to_hash(@invoice.hash_store).each do |k, v| %>
             <%# unless v.to_s.chomp.empty? %>
             <tr>
-              <td><b><%= "#{k}:"%></b>
+              <td><b><%= invoice_hash[k] ? invoice_hash[k] : k %>:</b>
                 <%= v unless v.empty? %>
               </td>
             </tr>
