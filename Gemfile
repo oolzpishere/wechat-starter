@@ -41,6 +41,8 @@ group :development, :test do
   gem 'selenium-webdriver'
 
   gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'capistrano-figaro-yml'
 end
 
