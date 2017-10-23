@@ -78,6 +78,7 @@ set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rben
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all # default value
 
+
 namespace :deploy do
   desc 'Runs any rake task, cap deploy:rake task=db:rollback'
   task rake: [:assets_precompile] do
