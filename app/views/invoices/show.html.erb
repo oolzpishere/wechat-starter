@@ -1,37 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-    <div class="col s12">
-	<div class="card">
-	    <div class="card-content">
-		<table class="striped">
-		    <thead>
-			<tr>
-			    <th class="card-title"><%#@invoice.form_name%></th>
-			</tr>
-		    </thead>
+  <div class="col s12">
+    <div class="card">
+      <div class="card-content">
+        <table class="striped">
+          <thead>
+            <tr>
+              <th class="card-title"><%#@invoice.form_name%></th>
+            </tr>
+          </thead>
 
-		    <tbody>
-			<%#  reject_rows(Entry.new(result: @result).values).each do |k, v| %>
-			<%  to_hash(@invoice.hash_store).each do |k, v| %>
-			    <%# unless v.to_s.chomp.empty? %>
-			    <tr>
-				<td><b><%= "#{k}:"%></b>
-				    <% if v.is_a?(Hash) %>
-					<%= compact_empty(v) %>
-				    <% else %>
-					<%= v %>
-				    <% end %>
-				</td>
-			    </tr>
-			    <%# end %>
-			<% end %>
-		    </tbody>
-		</table>
+          <tbody>
+            <%#  reject_rows(Entry.new(result: @result).values).each do |k, v| %>
+            <%  to_hash(@invoice.hash_store).each do |k, v| %>
+            <%# unless v.to_s.chomp.empty? %>
+            <tr>
+              <td><b><%= "#{k}:"%></b>
+                <%= v unless v.empty? %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-	    </div>
-	</div>
-  <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-  <%= link_to 'Back', invoices_path %>
+      </div>
     </div>
+
+    <%= link_to '返回', invoices_path, class: "waves-effect waves-light btn blue darken-1 white-text" %>
+  </div>
 </div>

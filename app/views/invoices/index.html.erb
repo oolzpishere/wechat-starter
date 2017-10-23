@@ -1,28 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Invoices</h1>
+<h5>发票抬头</h5>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="row">
+  <div class="col s12">
     <% @invoices.each do |invoice| %>
-    <%# invoice_hash = JSON.parse(invoice.hash_store) %>
-      <tr>
-        <td><%= link_to to_hash(invoice.hash_store)[:title], invoice %></td>
-        <td><%= link_to to_hash(invoice.hash_store)[:tax_no], invoice %></td>
-        <td><%= link_to 'Show', invoice %></td>
-        <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-        <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+
+    <div class="card">
+      <div class="card-content">
+        <table class="striped">
+          <!-- <thead>
+            <tr>
+              <th class="card-title"><%# result.form_name %></th>
+            </tr>
+          </thead> -->
+
+          <tbody>
+            <% hash_store = to_hash(invoice.hash_store) %>
+            <% hash_store
+            .select{|k| %i(title tax_no create_time).include?(k)}
+            .each do |k, _| %>
+            <tr>
+              <td>
+                <b><%= invoice_hash[k]%>:</b>
+                <%= hash_store[k]%>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <div class="card-action">
+          <%= link_to '查看详情', invoice, class: "waves-effect waves-light btn blue darken-1 white-text" %>
+        </div>
+
+      </div>
+    </div>
+
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Invoice', new_invoice_path %>
+    <%# link_to '返回',  root_path, class: "waves-effect waves-light btn blue darken-1 white-text" %>
+  </div>
+</div>
