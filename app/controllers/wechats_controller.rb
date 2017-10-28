@@ -8,7 +8,7 @@ class WechatsController < ApplicationController
 
     message_hash = request.message_hash
     message_hash.merge!(tax_no: message_hash[:tax_no].upcase)
-    byebug
+
     hash = {
       openid: message_hash[:FromUserName],
       hash_store: message_hash.to_json
