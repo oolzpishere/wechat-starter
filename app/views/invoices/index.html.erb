@@ -3,48 +3,49 @@
 <h5>发票抬头</h5>
 
 <div class="row">
-  <div class="col s12">
+
     <% @invoices.each do |invoice| %>
+	<div class="col l6 s12">
+	    <div class="card">
+		<div class="card-content">
+		    <table class="striped">
+			<!-- <thead>
+			     <tr>
+			     <th class="card-title"><%# result.form_name %></th>
+			     </tr>
+			     </thead> -->
 
-    <div class="card">
-      <div class="card-content">
-        <table class="striped">
-          <!-- <thead>
-            <tr>
-              <th class="card-title"><%# result.form_name %></th>
-            </tr>
-          </thead> -->
+			<tbody>
+			    <% hash_store = to_hash(invoice.hash_store) %>
+			    <% hash_store
+			    .select{|k| %i(title tax_no).include?(k)}
+			    .each do |k, _| %>
+				<tr>
+				    <td>
+					<b><%= invoice_hash[k]%>:</b>
+					<%= hash_store[k]%>
+				    </td>
+				</tr>
+			    <% end %>
+			    <tr>
+				<td>
+				    <b><%= invoice_hash[:updated_at]%>:</b>
+				    <%= invoice[:updated_at]%>
+				</td>
+			    </tr>
 
-          <tbody>
-            <% hash_store = to_hash(invoice.hash_store) %>
-            <% hash_store
-            .select{|k| %i(title tax_no).include?(k)}
-            .each do |k, _| %>
-            <tr>
-              <td>
-                <b><%= invoice_hash[k]%>:</b>
-                <%= hash_store[k]%>
-              </td>
-            </tr>
-            <% end %>
-            <tr>
-              <td>
-                <b><%= invoice_hash[:updated_at]%>:</b>
-                <%= invoice[:updated_at]%>
-              </td>
-            </tr>
+			</tbody>
+		    </table>
 
-          </tbody>
-        </table>
+		    <div class="card-action">
+			<%= link_to '查看详情', invoice, class: "waves-effect waves-light btn blue darken-1 white-text" %>
+		    </div>
 
-        <div class="card-action">
-          <%= link_to '查看详情', invoice, class: "waves-effect waves-light btn blue darken-1 white-text" %>
-        </div>
-
-      </div>
-    </div>
-
+		</div>
+	    </div>
+	</div>
     <% end %>
     <%# link_to '返回',  root_path, class: "waves-effect waves-light btn blue darken-1 white-text" %>
-  </div>
+
+
 </div>
