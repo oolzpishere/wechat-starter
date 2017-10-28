@@ -5,10 +5,17 @@ class WechatsController < ApplicationController
   skip_before_action :verify_signature unless Rails.env.match(/production/)
 
   on :event, with: 'submit_invoice_title' do |request|
-    invoice = Invoice.new()
-    invoice[:openid] = request.message_hash[:FromUserName]
-    invoice[:hash_store] = request.message_hash.to_json
-    invoice.save
+    hash = {
+      openid: request.message_hash[:FromUserName],
+      hash_store: request.message_hash.to_json
+    }
+    invoice = Invoice.where(openid: request.message_hash[:FromUserName]).first
+    if invoice
+      invoice.update(hash)
+    else
+      invoice = Invoice.new(hash)
+      invoice.save
+    end
   end
 
   # default text responder when no other match
