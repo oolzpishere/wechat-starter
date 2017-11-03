@@ -5,9 +5,7 @@ class WechatsController < ApplicationController
   skip_before_action :verify_signature unless Rails.env.match(/production/)
 
   on :event, with: 'submit_invoice_title' do |request|
-
-    message_hash = request.message_hash
-    message_hash.merge!(tax_no: message_hash[:tax_no].upcase)
+    message_hash = tax_no_upcase(request.message_hash)
 
     hash = {
       openid: message_hash[:FromUserName],
@@ -20,6 +18,10 @@ class WechatsController < ApplicationController
       invoice = Invoice.new(hash)
       invoice.save
     end
+  end
+
+  def tax_no_upcase(hash)
+    hash.merge(tax_no: hash[:tax_no].upcase)
   end
 
   # default text responder when no other match
