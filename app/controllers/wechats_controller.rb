@@ -30,8 +30,8 @@ class WechatsController < ApplicationController
   end
 
   # When receive 'help', will trigger this responder
-  on :text, with: 'help' do |request|
-    request.reply.text 'help content'
+  on :text, with: /hb|bxm|wcq|ml|lzp|xxm|ly|胡波|包晓明|Nicolas|王 彩琴|马利|赖中平|徐秀媚|刘鹰/i do |request|
+    request.reply.text '下载胡波、包晓明、王彩琴、马利、赖中平、徐秀媚、刘鹰老师的课件，请点击链接: https://pan.baidu.com/s/1qYc9yVU 密码: 1cyn'
   end
 
   # When receive '<n>news', will match and will got count as <n> as parameter
@@ -44,7 +44,7 @@ class WechatsController < ApplicationController
   end
 
   on :event, with: 'subscribe' do |request|
-    request.reply.text "#{request[:FromUserName]} subscribe now"
+    request.reply.text "“前沿课堂”是面向全国小学至高中各学科教师、教研员、教学业务领导及基础教育教学研究者，以学科教学研究为基础的教师会议、赛事活动、教育培训专业品牌。"
   end
 
   # When unsubscribe user scan qrcode qrscene_xxxxxx to subscribe in public account

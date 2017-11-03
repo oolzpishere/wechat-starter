@@ -1,31 +1,50 @@
 button:
   -
-   name: "我要"
+   name: "前沿动态"
    sub_button:
     -
-     type: "scancode_waitmsg"
-     name: "绑定用餐二维码"
-     key: "BINDING_QR_CODE"
+     type: "view"
+     name: "英语动态"
+     url: "http://mp.weixin.qq.com/mp/homepage?__biz=MzI1NTg1MDA0OA==&hid=1&sn=326661f877394332103a3104c1a3ee6c&scene=18#wechat_redirect"
     -
-     type: "click"
-     name: "预订午餐"
-     key:  "BOOK_LUNCH"
+      type: "view"
+      name: "语文动态"
+      url: "http://mp.weixin.qq.com/mp/homepage?__biz=MzI1NTg1MDA0OA==&hid=3&sn=28a2ccb449638048d7a952417ef37beb&scene=18#wechat_redirect"
     -
-     type: "click"
-     name: "预订晚餐"
-     key:  "BOOK_DINNER"
+     type: "view"
+     name: "数学动态"
+     url: "http://mp.weixin.qq.com/mp/homepage?__biz=MzI1NTg1MDA0OA==&hid=2&sn=33548d89f773520d0828fd2847a1cce1&scene=18#wechat_redirect"
   -
-   name: "查询"
+   name: "前沿报名"
    sub_button:
     -
-     type: "click"
-     name: "进出记录"
-     key:  "BADGE_IN_OUT"
+     type: "view"
+     name: "英语"
+     url: "https://jinshuju.net/f/v9KUmP"
     -
-     type: "click"
-     name: "年假余额"
-     key:  "ANNUAL_LEAVE"
+     type: "view"
+     name: "语文"
+     url: "https://jinshuju.net/f/bcjuh1"
+    -
+     type: "view"
+     name: "数学"
+     url: "https://jinshuju.net/f/dX2Bc8"
+    -
+     type: "view"
+     name: "核对报名信息"
+     url: "http://qianyan.sflx.com.cn/"
+    -
+     type: "view"
+     name: "邀请函下载"
+     url: "https://share.weiyun.com/46b4031ddd640a51b4a01474cd6cbe64"
   -
-   type: "view"
-   name: "关于"
-   url:  "http://blog.cloud-mes.com/"
+   name: "前沿课堂"
+   sub_button:
+    -
+     type: "view"
+     name: "关于我们"
+     url: "http://mp.weixin.qq.com/s?__biz=MzI1NTg1MDA0OA==&mid=100000279&idx=1&sn=14c9f87eacc111583128523bad739dd6&chksm=6a2ee1385d59682e119edd75eecd50d1caac2af868fd69aa2ac48f61f10c163579c171dd6abf&scene=18#wechat_redirect"
+    -
+     type: "view"
+     name: "前沿客服"
+     url: "http://mp.weixin.qq.com/s?__biz=MzI1NTg1MDA0OA==&mid=100000467&idx=1&sn=6b624a292142ba4162d404068c31ba50&chksm=6a2ee1fc5d5968ea5707536ab1c65ae52b34bf43b2bf6777b07abe6e36166137b06dca3dd323&scene=18#wechat_redirect"
