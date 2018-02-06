@@ -30,7 +30,7 @@ class WechatsController < ApplicationController
   end
 
   # When receive 'help', will trigger this responder
-  on :text, with: /hb|bxm|wcq|ml|lzp|xxm|ly|胡波|包晓明|Nicolas|王 彩琴|马利|赖中平|徐秀媚|刘鹰/i do |request|
+  on :text, with: /hb|bxm|wcq|ml|lzp|xxm|ly|胡波|包晓明|Nicolas|王彩琴|马利|赖中平|徐秀媚|刘鹰/i do |request|
     request.reply.text '下载胡波、包晓明、王彩琴、马利、赖中平、徐秀媚、刘鹰老师的课件，请点击链接: https://pan.baidu.com/s/1qYc9yVU 密码: 1cyn'
   end
 
