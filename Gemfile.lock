@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/oolzpishere/omniauth-wechat-oauth2.git
+  revision: 10a392b0e041aac1ba30b5b7fdc92f370a806c63
+  specs:
+    omniauth-wechat-oauth2 (0.1.0)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -109,7 +117,7 @@ GEM
       thor (~> 0.14)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    hashie (3.5.6)
+    hashie (3.5.7)
     http (2.2.2)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -163,15 +171,12 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
-    omniauth (1.7.1)
+    omniauth (1.8.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
-    omniauth-oauth2 (1.4.0)
-      oauth2 (~> 1.0)
+    omniauth-oauth2 (1.5.0)
+      oauth2 (~> 1.1)
       omniauth (~> 1.2)
-    omniauth-wechat-oauth2 (0.1.0)
-      omniauth (~> 1.0)
-      omniauth-oauth2 (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
     pry (0.11.1)
@@ -303,7 +308,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   materialize-sass
-  omniauth-wechat-oauth2
+  omniauth-wechat-oauth2!
   pg (~> 0.18)
   pry
   puma (~> 3.7)

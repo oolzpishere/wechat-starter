@@ -8,10 +8,12 @@ class User < ActiveRecord::Base
   # validates :birthday, presence: true
 
   def self.from_omniauth(auth)
+        # where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.nickname = auth.info.nickname
       user.sex = auth.info.sex
       user.avatar = auth.info.headimgurl
+      user.unionid = auth.info.unionid
     end
   end
 
@@ -23,6 +25,7 @@ class User < ActiveRecord::Base
         user.nickname = data['info']['nickname']
         user.sex = data['info']['sex']
         user.avatar = data['info']['headimgurl']
+        user.unionid = data['info']['unionid']
       end
     end
   end
