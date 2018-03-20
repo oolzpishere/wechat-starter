@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
       user.nickname = auth.info.nickname
       user.sex = auth.info.sex
       user.avatar = auth.info.headimgurl
-      user.unionid = auth.info.unionid
+      user.unionid = auth.extra.raw_info.unionid
     end
   end
 
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
         user.nickname = data['info']['nickname']
         user.sex = data['info']['sex']
         user.avatar = data['info']['headimgurl']
-        user.unionid = data['info']['unionid']
+        user.unionid = data['raw_info']['unionid']
       end
     end
   end
