@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
+    render plain: params[:echostr] if params[:echostr]
     # @pages = Page.all
   end
 

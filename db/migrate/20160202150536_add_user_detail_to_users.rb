@@ -3,5 +3,6 @@ class AddUserDetailToUsers < ActiveRecord::Migration[5.0]
     add_column :users, :nickname, :string
     add_column :users, :sex, :integer
     add_column :users, :avatar, :string
+    add_column :users, :unionid, :string
   end
 end
