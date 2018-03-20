@@ -68,6 +68,6 @@ gem 'devise'
 gem 'wechat'
 gem 'wx_pay'
 gem 'weui-rails'
-gem 'omniauth-wechat-oauth2', git: "https://github.com/oolzpishere/omniauth-wechat-oauth2.git"
+gem 'omniauth-wechat-oauth2'#, git: "https://github.com/oolzpishere/omniauth-wechat-oauth2.git"
 gem 'jquery-rails'
 gem 'materialize-sass'
