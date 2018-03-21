@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
         # where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
-    where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
+    where(provider: auth.provider, unionid: auth.extra.raw_info.unionid).first_or_initialize do |user|
       user.nickname = auth.info.nickname
       user.sex = auth.info.sex
       user.avatar = auth.info.headimgurl
-      user.unionid = auth.extra.raw_info.unionid
+      user.uid = auth.uid
     end
   end
 
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
         user.nickname = data['info']['nickname']
         user.sex = data['info']['sex']
         user.avatar = data['info']['headimgurl']
-        user.unionid = data['raw_info']['unionid']
+        user.unionid = data['extra']['raw_info']['unionid']
       end
     end
   end
